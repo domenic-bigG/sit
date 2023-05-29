@@ -1,0 +1,254 @@
+/*header*/
+
+.header-filler {
+    position: relative;
+    width: 100%;
+    height: 64px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 64px;
+    padding: 7px 1%;
+    background-color: var(--bgcolor);
+    display: flex;
+    justify-content: space-between;
+    transition: top 0.2s ease-in-out;
+    z-index: 1000;
+}
+
+.header-up {
+    top: -64px;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 2%;
+    cursor: pointer;
+}
+
+.header-image {
+    width: 95px;
+    height: 20px;
+    user-select: none;
+}
+
+.header-btn-flex {
+    display: flex;
+    gap: 8px;
+}
+
+.header-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+}
+
+.header-nav-itm {
+    position: relative;
+    height: 50px;
+    padding: 0 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--txtcolor);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.header-nav-itm:hover {
+    background-color: var(--bgcolorHover);
+    color: var(--txtcolorHover);
+    transition: all .3s;
+}
+
+#header-btn:nth-child(1) {
+    height: 50px;
+    padding: 0 24px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+    background-color: var(--btnbgcolor);
+
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--bgcolor);
+}
+
+#header-btn:nth-child(1):hover {
+    background-color: var(--btnbgcolorHover);
+    transition: all .3s;
+}
+
+/*display:none*/
+
+.header-hamb {
+    display: none;
+}
+
+.header-logo-mobile {
+    display: none;
+}
+
+.header-mobile-filler {
+    display: none;
+}
+
+#header-translate-btn-text {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .header {
+        padding: 7px 3%;
+    }
+
+    .header-logo {
+        padding: 0;
+    }
+
+    .header-hamb {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 50px;
+        padding: 16.5px 0;
+        cursor: pointer;
+        z-index: 1004;
+    }
+
+    .header-hamb-itm {
+        width: 30px;
+        height: 3px;
+        margin-bottom: 4px;
+        border-radius: 25px;
+        background-color: var(--txtcolor);
+        transition: all .1s;
+    }
+
+    .header-hamb.is-active .header-hamb-itm.nd {
+        opacity: 0;
+    }
+
+    .header-hamb.is-active .header-hamb-itm.st,
+    .header-hamb.is-active .header-hamb-itm.rd {
+        position: absolute;
+        top: 23.5px;
+        transition: all .3s;
+    }
+
+    .header-hamb.is-active .header-hamb-itm.st {
+        transform: rotate(45deg);
+    }
+
+    .header-hamb.is-active .header-hamb-itm.rd {
+        transform: rotate(-45deg);
+    }
+
+    .header-nav {
+        display: flex;
+        justify-content: flex-start;
+        align-items: unset;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-btn-flex {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding: 0 24px;
+    }
+
+    .header-bar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 300px;
+        height: 100vh;
+        padding: 0 2%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 30px;
+
+        background-color: var(--bgfooter);
+        z-index: 1003;
+        user-select: none;
+        pointer-events: none;
+        transition: all .5s;
+    }
+
+    .header-bar.is-active {
+        left: 0;
+        user-select: unset;
+        pointer-events: unset;
+        transition: all .5s;
+    }
+
+    .header-nav-itm {
+        font-size: 18px;
+        color: var(--txtcolorHover);
+        justify-content: flex-start;
+    }
+
+    .header-logo-mobile {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
+        cursor: pointer;
+    }
+
+    .header-mobile-filler {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--headerbgcolorfiller);
+        z-index: 999;
+    }
+
+    .header-mobile-filler.is-active {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .header-bar {
+        left: -70%;
+        width: 70%;
+    }
+
+    .header-bar.is-active {
+        left: 0;
+    }
+}
